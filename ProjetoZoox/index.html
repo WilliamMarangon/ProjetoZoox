@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="style-landscape.css" media="all and (orientation: landscape)" />
+	<link rel="stylesheet" type="text/css" href="style-portrait.css" media="all and (orientation: portrait)" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>Projeto Teste</title>
+</head>
+
+<body>
+	<div id="main"></div>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#main',
+			template: `
+				<div class="container">
+					<div id="login" v-show="isLogin">
+						<div style="height:50px;"></div>
+						<main class="flex-centralizado">
+							<div style="width:30px;"></div>
+							<div style="width:calc(100% - 60px);">
+								<div class="titulo">Entrar com</div>
+								<div style="height:50px;"></div>
+								<main class="flex-centralizado">
+									<div class="facebook" v-on:click="isDashboard = true; isLogin = false"><i class="fab fa-facebook-f"></i></div>
+									<div style="width:20px;"></div>
+									<div class="google" v-on:click="isDashboard = true; isLogin = false"><i class="fab fa-google"></i></div>
+								</main>
+								<div style="height:20px;"></div>
+								<main class="flex-centralizado">
+									<div class="linha" style="width:calc(50% - 25px);"></div>
+									<div class="texto" style="width:50px;">ou</div>
+									<div class="linha" style="width:calc(50% - 25px);"></div>
+								</main>
+								<div style="height:20px;"></div>
+								<div style="position:relative;"><input placeholder="Digite seu email" type="text" name="login" class="form" v-model="login" style="width:100%;" /><div class="icon-form"><img src="img/login.png" height="24" /></div></div>
+								<div style="height:20px;"></div>
+								<div><button type="submit" v-on:click="isLogin2 = true; isLogin = false" class="botao" style="width:100%;">SEGUIR</button></div>
+								<div style="height:30px;"></div>
+								<div class="linha"></div>
+								<div style="height:30px;"></div>
+								<div><button type="submit" v-on:click="isCadastro = true; isLogin = false" class="botao2" style="width:100%;">CADASTRAR</button></div>
+							</div>
+							<div style="width:30px;"></div>
+						</main>
+					</div>
+					<div id="login2" v-show="isLogin2">
+						<div style="height:50px;"></div>
+						<main class="flex-centralizado">
+							<div style="width:30px;"></div>
+							<div style="width:calc(100% - 60px);">
+								<div class="titulo">Bem vindo</div>
+								<div class="titulo">William</div>
+								<div style="height:20px;"></div>
+								<main class="flex-centralizado"><img src="img/avatar.png" height="100" /></main>
+								<div style="height:20px;"></div>
+								<div style="position:relative;"><input placeholder="Digite sua senha" type="password" name="senha" class="form" v-model="senha" style="width:100%;" /><div class="icon-form"><img src="img/senha.png" height="24" /></div></div>
+								<div style="height:20px;"></div>
+								<div class="texto" style="text-align:right;font-size:15px;line-height:15px;">Esqueceu sua senha?</div>
+								<div style="height:20px;"></div>
+								<div><button type="submit" v-on:click="isDashboard = true; isLogin2 = false" class="botao" style="width:100%;">ENTRAR</button></div>
+								<div style="height:30px;"></div>
+								<div class="linha"></div>
+								<div style="height:30px;"></div>
+								<div><button type="submit" v-on:click="isCadastro = true; isLogin2 = false" class="botao2" style="width:100%;">CADASTRAR</button></div>
+							</div>
+							<div style="width:30px;"></div>
+						</main>
+					</div>
+					<div id="cadastro" v-show="isCadastro">
+						<div style="height:50px;"></div>
+						<main class="flex-centralizado">
+							<div style="width:30px;"></div>
+							<div style="width:calc(100% - 60px);">
+								<div class="titulo">Conectar com</div>
+								<div style="height:50px;"></div>
+								<main class="flex-centralizado">
+									<div class="facebook" v-on:click="isDashboard = true; isCadastro = false"><i class="fab fa-facebook-f"></i></div>
+									<div style="width:20px;"></div>
+									<div class="google" v-on:click="isDashboard = true; isCadastro = false"><i class="fab fa-google"></i></div>
+								</main>
+								<div style="height:20px;"></div>
+								<main class="flex-centralizado">
+									<div class="linha" style="width:calc(50% - 25px);"></div>
+									<div class="texto" style="width:50px;">ou</div>
+									<div class="linha" style="width:calc(50% - 25px);"></div>
+								</main>
+								<div style="height:20px;"></div>
+								<div style="position:relative;"><input placeholder="Digite seu email" type="text" name="login" class="form" v-model="login" style="width:100%;" /><div class="icon-form"><img src="img/login.png" height="24" /></div></div>
+								<div style="height:20px;"></div>
+								<div style="position:relative;"><input placeholder="Digite seu nome" type="text" name="nome" class="form" v-model="nome" style="width:100%;" /><div class="icon-form"><img src="img/nome.png" height="24" /></div></div>
+								<div style="height:20px;"></div>
+								<div style="position:relative;"><input placeholder="Digite sua senha" type="password" name="senha" class="form" v-model="senha" style="width:100%;" /><div class="icon-form"><img src="img/senha.png" height="24" /></div></div>
+								<div style="height:20px;"></div>
+								<div><button type="submit" v-on:click="isDashboard = true; isCadastro = false" class="botao" style="width:100%;">SEGUIR</button></div>
+							</div>
+							<div style="width:30px;"></div>
+						</main>
+					</div>
+					<div v-show="isDashboard">
+						<div id="menu">
+							<div class="icon-dashboard ativo" v-on:click="isDashboard = true; isCidades = false; isTempo = false"><img src="img/icon-dashboard.png" width="20" /><div></div></div>
+							<div class="icon-cidades" v-on:click="isDashboard = false; isCidades = true; isTempo = false"><img src="img/icon-cidades.png" width="20" /></div>
+							<div class="icon-tempo" v-on:click="isDashboard = false; isCidades = false; isTempo = true"><img src="img/icon-tempo.png" width="20" /></div>
+							<div class="icon-sair" v-on:click="isDashboard = false; isCidades = false; isTempo = false; isLogin = true"><img src="img/icon-sair.png" width="20" /></div>
+							<div class="mobile icon-avatar"><img src="img/avatar.png" height="30" /></div>
+						</div>
+						<div id="dashboard">
+							<div style="height:30px;">
+								<main class="flex-centralizado" style="float:left;">
+									<div class="texto" style="line-height:30px;">Dashboard</div>
+									<div style="width:10px;"></div>
+									<div class="mini" style="line-height:30px;">Principal</div>
+								</main>
+								<div class="desktop">
+									<main class="flex-centralizado" style="float:right;">
+										<div style="width:30px;"><img src="img/avatar.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="mini" style="line-height:30px;">William Admin</div>
+									</main>
+								</div>
+							</div>
+							<div style="height:20px;"></div>
+							<div class="linha"></div>
+							<div style="height:50px;"></div>
+							<div class="desktop">
+								<main class="flex-centralizado">
+									<div class="box2" style="width:calc(34% - 14px);" v-on:click="isDashboard = false; isCidades = true; isTempo = false">
+										<main class="flex-centralizado">
+											<div class="img1" style="width:30px;"><img src="img/box2-1.png" height="30" /></div>
+											<div class="img2" style="width:30px;"><img src="img/box2-1b.png" height="30" /></div>
+											<div class="titulo" style="text-align:right;width:100%;">128</div>
+										</main>
+										<div style="height:10px;"></div>
+										<div class="mini">Países</div>
+									</div>
+									<div style="width:20px;"></div>
+									<div class="box2" style="width:calc(33% - 13px);" v-on:click="isDashboard = false; isCidades = true; isTempo = false">
+										<main class="flex-centralizado">
+											<div class="img1" style="width:30px;"><img src="img/box2-2.png" height="30" /></div>
+											<div class="img2" style="width:30px;"><img src="img/box2-2b.png" height="30" /></div>
+											<div class="titulo" style="text-align:right;width:100%;">32</div>
+										</main>
+										<div style="height:10px;"></div>
+										<div class="mini">Cidades</div>
+									</div>
+									<div style="width:20px;"></div>
+									<div class="box2" style="width:calc(33% - 13px);" v-on:click="isDashboard = false; isCidades = true; isTempo = false">
+										<main class="flex-centralizado">
+											<div class="img1" style="width:30px;"><img src="img/box2-3.png" height="30" /></div>
+											<div class="img2" style="width:30px;"><img src="img/box2-3b.png" height="30" /></div>
+											<div class="titulo" style="text-align:right;width:100%;">36</div>
+										</main>
+										<div style="height:10px;"></div>
+										<div class="mini">Cadastros</div>
+									</div>
+								</main>
+							</div>
+							<div class="mobile">
+								<div class="box2" style="width:100%;" v-on:click="isDashboard = false; isCidades = true; isTempo = false">
+									<main class="flex-centralizado">
+										<div class="img1" style="width:30px;"><img src="img/box2-1.png" height="30" /></div>
+										<div class="img2" style="width:30px;"><img src="img/box2-1b.png" height="30" /></div>
+										<div class="titulo" style="text-align:right;width:100%;">128</div>
+									</main>
+									<div style="height:10px;"></div>
+									<div class="mini">Países</div>
+								</div>
+								<div style="height:20px;"></div>
+								<div class="box2" style="width:100%;" v-on:click="isDashboard = false; isCidades = true; isTempo = false">
+									<main class="flex-centralizado">
+										<div class="img1" style="width:30px;"><img src="img/box2-2.png" height="30" /></div>
+										<div class="img2" style="width:30px;"><img src="img/box2-2b.png" height="30" /></div>
+										<div class="titulo" style="text-align:right;width:100%;">32</div>
+									</main>
+									<div style="height:10px;"></div>
+									<div class="mini">Cidades</div>
+								</div>
+								<div style="height:20px;"></div>
+								<div class="box2" style="width:100%;" v-on:click="isDashboard = false; isCidades = true; isTempo = false">
+									<main class="flex-centralizado">
+										<div class="img1" style="width:30px;"><img src="img/box2-3.png" height="30" /></div>
+										<div class="img2" style="width:30px;"><img src="img/box2-3b.png" height="30" /></div>
+									<div class="titulo" style="text-align:right;width:100%;">36</div>
+									</main>
+									<div style="height:10px;"></div>
+									<div class="mini">Cadastros</div>
+								</div>
+							</div>
+							<div style="height:20px;"></div>
+							<div class="box">
+								<div style="height:30px;">
+									<main class="flex-centralizado" style="float:left;">
+										<div style="width:30px;"><img src="img/icon-tempo2.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="titulo" style="font-size:20px;line-height:20px;">Previsão do Tempo</div>
+									</main>
+								</div>
+							</div>
+							<div style="height:20px;"></div>
+							<div class="box">
+								<div style="height:30px;">
+									<main class="flex-centralizado" style="float:left;">
+										<div style="width:30px;"><img src="img/icon-lista.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="titulo" style="font-size:20px;line-height:20px;">Lista</div>
+									</main>
+								</div>
+								<div class="list-group">
+									<div class="desktop">
+										<div class="list-group-item" v-for="(list, index) in allComments">
+											<div style="height:20px;"></div>
+											<div class="linha"></div>
+											<div style="height:20px;"></div>
+											<main class="flex-centralizado">
+												<div class="mini" style="width:40%;">{{ list.cidade }}</div>
+												<div class="mini" style="width:12%;">{{ list.latitude }}</div>
+												<div class="mini" style="width:12%;">{{ list.longetude }}</div>
+												<div class="mini" style="width:12%;">{{ list.data }}</div>
+												<div class="mini" style="width:12%;">{{ list.atualizacao }}</div>
+												<div class="mini" style="width:12%;">{{ list.iso }}</div>
+											</main>
+										</div>
+									</div>
+									<div class="mobile">
+										<div class="list-group-item" v-for="(list, index) in allComments">
+											<div style="height:20px;"></div>
+											<div class="linha"></div>
+											<div style="height:20px;"></div>
+											<main class="flex-centralizado">
+												<div class="mini" style="width:40%;">{{ list.cidade }}</div>
+												<div class="mini" style="width:20%;">{{ list.latitude }}</div>
+												<div class="mini" style="width:20%;">{{ list.longetude }}</div>
+												<div class="mini" style="width:20%;">{{ list.data }}</div>
+											</main>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div v-show="isCidades">
+						<div id="menu">
+							<div class="icon-dashboard" v-on:click="isDashboard = true; isCidades = false; isTempo = false"><img src="img/icon-dashboard.png" width="20" /></div>
+							<div class="icon-cidades ativo" v-on:click="isDashboard = false; isCidades = true; isTempo = false"><img src="img/icon-cidades.png" width="20" /><div></div></div>
+							<div class="icon-tempo" v-on:click="isDashboard = false; isCidades = false; isTempo = true"><img src="img/icon-tempo.png" width="20" /></div>
+							<div class="icon-sair" v-on:click="isDashboard = false; isCidades = false; isTempo = false; isLogin = true"><img src="img/icon-sair.png" width="20" /></div>
+							<div class="mobile icon-avatar"><img src="img/avatar.png" height="30" /></div>
+						</div>
+						<div id="cidades">
+							<div style="height:30px;">
+								<main class="flex-centralizado" style="float:left;">
+									<div class="texto" style="line-height:30px;">Cadastro</div>
+									<div style="width:10px;"></div>
+									<div class="mini" style="line-height:30px;">Cidade/País</div>
+								</main>
+								<div class="desktop">
+									<main class="flex-centralizado" style="float:right;">
+										<div style="width:30px;"><img src="img/avatar.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="mini" style="line-height:30px;">William Admin</div>
+									</main>
+								</div>
+							</div>
+							<div style="height:20px;"></div>
+							<div class="linha"></div>
+							<div style="height:50px;"></div>
+							<div class="box">
+								<div style="height:30px;">
+									<main class="flex-centralizado" style="float:left;">
+										<div style="width:30px;"><img src="img/icon-cidades2.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="titulo" style="font-size:30px;line-height:30px;">Cidade/País</div>
+									</main>
+								</div>
+								<div style="height:20px;"></div>
+								<main class="flex-centralizado" style="position:relative;">
+									<input placeholder="Digite a cidade" type="text" name="cidade" class="form" v-model="cidade" style="width:100%;padding: 10px;" />
+									<div class="icon-botao"><input v-on:click="addCidade" type="image" src="img/icon-busca.png" width="30" /></div>
+								</main>
+								<div style="height:20px;"></div>
+								<div class="linha" style="height:5px;background:#070557;"></div>
+								<div style="height:20px;"></div>
+								<div style="height:30px;">
+									<main class="flex-centralizado" style="float:left;">
+										<div style="width:30px;"><img src="img/icon-lista.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="titulo" style="font-size:30px;line-height:30px;">Lista</div>
+									</main>
+								</div>
+								<div style="height:20px;"></div>
+								<div class="list-group">
+									<div class="desktop">
+										<main class="flex-centralizado">
+										   <div class="mini" style="width:38%;">Cidade,País</div>
+											<div class="mini" style="width:12%;">Latitude</div>
+											<div class="mini" style="width:12%;">Longetude</div>
+											<div class="mini" style="width:12%;">Criação</div>
+											<div class="mini" style="width:12%;">Atualização</div>
+											<div class="mini" style="width:12%;">Código ISO</div>
+											<div class="mini" style="width:2%;"></div>
+										</main>
+										<div class="list-group-item" v-for="(list, index) in allComments">
+											<div style="height:20px;"></div>
+											<div class="linha"></div>
+											<div style="height:20px;"></div>
+											<main class="flex-centralizado">
+												<div class="mini" style="width:38%;">{{ list.cidade }}</div>
+												<div class="mini" style="width:12%;">{{ list.latitude }}</div>
+												<div class="mini" style="width:12%;">{{ list.longetude }}</div>
+												<div class="mini" style="width:12%;">{{ list.data }}</div>
+												<div class="mini" style="width:12%;">{{ list.atualizacao }}</div>
+												<div class="mini" style="width:12%;">{{ list.iso }}</div>
+												<div class="mini" style="width:2%;"><a href="#" title="Excluir" v-on:click.prevent="removeCidade(index)"><i class="fas fa-trash" style="color:#000000;"></i></a></div>
+											</main>
+										</div>
+									</div>
+									<div class="mobile">
+										<main class="flex-centralizado">
+										   <div class="mini" style="width:35%;">Cidade,País</div>
+											<div class="mini" style="width:20%;">Latitude</div>
+											<div class="mini" style="width:20%;">Longetude</div>
+											<div class="mini" style="width:20%;">Criação</div>
+											<div class="mini" style="width:5%;"></div>
+										</main>
+										<div class="list-group-item" v-for="(list, index) in allComments">
+											<div style="height:20px;"></div>
+											<div class="linha"></div>
+											<div style="height:20px;"></div>
+											<main class="flex-centralizado">
+												<div class="mini" style="width:35%;">{{ list.cidade }}</div>
+												<div class="mini" style="width:20%;">{{ list.latitude }}</div>
+												<div class="mini" style="width:20%;">{{ list.longetude }}</div>
+												<div class="mini" style="width:20%;">{{ list.data }}</div>
+												<div class="mini" style="width:5%;"><a href="#" title="Excluir" v-on:click.prevent="removeCidade(index)"><i class="fas fa-trash" style="color:#000000;"></i></a></div>
+											</main>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div v-show="isTempo">
+						<div id="menu">
+							<div class="icon-dashboard" v-on:click="isDashboard = true; isCidades = false; isTempo = false"><img src="img/icon-dashboard.png" width="20" /></div>
+							<div class="icon-cidades" v-on:click="isDashboard = false; isCidades = true; isTempo = false"><img src="img/icon-cidades.png" width="20" /></div>
+							<div class="icon-tempo ativo" v-on:click="isDashboard = false; isCidades = false; isTempo = true"><img src="img/icon-tempo.png" width="20" /><div></div></div>
+							<div class="icon-sair" v-on:click="isDashboard = false; isCidades = false; isTempo = false; isLogin = true"><img src="img/icon-sair.png" width="20" /></div>
+							<div class="mobile icon-avatar"><img src="img/avatar.png" height="30" /></div>
+						</div>
+						<div id="tempo">
+							<div style="height:30px;">
+								<main class="flex-centralizado" style="float:left;">
+									<div class="texto" style="line-height:30px;">Previsão</div>
+									<div style="width:10px;"></div>
+									<div class="mini" style="line-height:30px;">Tempo, nuvens, temperatura ...</div>
+								</main>
+								<div class="desktop">
+									<main class="flex-centralizado" style="float:right;">
+										<div style="width:30px;"><img src="img/avatar.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="mini" style="line-height:30px;">William Admin</div>
+									</main>
+								</div>
+							</div>
+							<div style="height:20px;"></div>
+							<div class="linha"></div>
+							<div style="height:50px;"></div>
+							<div class="box">
+								<div style="height:30px;">
+									<main class="flex-centralizado" style="float:left;">
+										<div style="width:30px;"><img src="img/icon-tempo2.png" height="30" /></div>
+										<div style="width:10px;"></div>
+										<div class="titulo" style="font-size:30px;line-height:30px;">Previsão do Tempo</div>
+									</main>
+								</div>
+								<div style="height:20px;"></div>
+								<main class="flex-centralizado" style="position:relative;">
+									<input placeholder="Digite a cidade" type="text" name="cidade2" class="form" v-model="cidade2" style="width:100%;padding: 10px;" />
+									<div class="icon-botao"><input v-on:click="addCidade2" type="image" src="img/icon-busca.png" width="30" /></div>
+								</main>
+								<div style="height:20px;"></div>
+								<div class="linha" style="height:5px;background:#070557;"></div>
+								<div class="list-group">
+									<div class="desktop list-group-item" v-for="(list2, index) in allComments2">
+										<div style="height:20px;"></div>
+										<div class="linha"></div>
+										<div style="height:20px;"></div>
+										<div><span class="comment__author"><strong>{{ list2.cidade }}</strong></span></div>
+										<div style="height:10px;"></div>
+										<main class="flex-centralizado">
+											<div style="width:12%;">
+												<div class="mini">Data</div>
+												<div class="mini">Temperatura</div>
+												<div class="mini">Umidade</div>
+												<div class="mini">Pressão</div>
+												<div class="mini">Nuvens</div>
+												<div class="mini">Vento</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datap5 }}</div>
+												<div class="mini">{{ list2.tempp5 }} °C</div>
+												<div class="mini">{{ list2.humidityp5 }} %</div>
+												<div class="mini">{{ list2.pressurep5 }} hPa</div>
+												<div class="mini">{{ list2.cloudsp5 }} %</div>
+												<div class="mini">{{ list2.speedp5 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datap4 }}</div>
+												<div class="mini">{{ list2.tempp4 }} °C</div>
+												<div class="mini">{{ list2.humidityp4 }} %</div>
+												<div class="mini">{{ list2.pressurep4 }} hPa</div>
+												<div class="mini">{{ list2.cloudsp4 }} %</div>
+												<div class="mini">{{ list2.speedp4 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datap3 }}</div>
+												<div class="mini">{{ list2.tempp3 }} °C</div>
+												<div class="mini">{{ list2.humidityp3 }} %</div>
+												<div class="mini">{{ list2.pressurep3 }} hPa</div>
+												<div class="mini">{{ list2.cloudsp3 }} %</div>
+												<div class="mini">{{ list2.speedp3 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datap2 }}</div>
+												<div class="mini">{{ list2.tempp2 }} °C</div>
+												<div class="mini">{{ list2.humidityp2 }} %</div>
+												<div class="mini">{{ list2.pressurep2 }} hPa</div>
+												<div class="mini">{{ list2.cloudsp2 }} %</div>
+												<div class="mini">{{ list2.speedp2 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datap1 }}</div>
+												<div class="mini">{{ list2.tempp1 }} °C</div>
+												<div class="mini">{{ list2.humidityp1 }} %</div>
+												<div class="mini">{{ list2.pressurep1 }} hPa</div>
+												<div class="mini">{{ list2.cloudsp1 }} %</div>
+												<div class="mini">{{ list2.speedp1 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.data }}</div>
+												<div class="mini">{{ list2.temp }} °C</div>
+												<div class="mini">{{ list2.humidity }} %</div>
+												<div class="mini">{{ list2.pressure }} hPa</div>
+												<div class="mini">{{ list2.clouds }} %</div>
+												<div class="mini">{{ list2.speed }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datan1 }}</div>
+												<div class="mini">{{ list2.tempn1 }} °C</div>
+												<div class="mini">{{ list2.humidityn1 }} %</div>
+												<div class="mini">{{ list2.pressuren1 }} hPa</div>
+												<div class="mini">{{ list2.cloudsn1 }} %</div>
+												<div class="mini">{{ list2.speedn1 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datan2 }}</div>
+												<div class="mini">{{ list2.tempn2 }} °C</div>
+												<div class="mini">{{ list2.humidityn2 }} %</div>
+												<div class="mini">{{ list2.pressuren2 }} hPa</div>
+												<div class="mini">{{ list2.cloudsn2 }} %</div>
+												<div class="mini">{{ list2.speedn2 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datan3 }}</div>
+												<div class="mini">{{ list2.tempn3 }} °C</div>
+												<div class="mini">{{ list2.humidityn3 }} %</div>
+												<div class="mini">{{ list2.pressuren3 }} hPa</div>
+												<div class="mini">{{ list2.cloudsn3 }} %</div>
+												<div class="mini">{{ list2.speedn3 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datan4 }}</div>
+												<div class="mini">{{ list2.tempn4 }} °C</div>
+												<div class="mini">{{ list2.humidityn4 }} %</div>
+												<div class="mini">{{ list2.pressuren4 }} hPa</div>
+												<div class="mini">{{ list2.cloudsn4 }} %</div>
+												<div class="mini">{{ list2.speedn4 }} km/h</div>
+											</div>
+											<div style="width:8%;">
+												<div class="mini">{{ list2.datan5 }}</div>
+												<div class="mini">{{ list2.tempn5 }} °C</div>
+												<div class="mini">{{ list2.humidityn5 }} %</div>
+												<div class="mini">{{ list2.pressuren5 }} hPa</div>
+												<div class="mini">{{ list2.cloudsn5 }} %</div>
+												<div class="mini">{{ list2.speedn5 }} km/h</div>
+											</div>
+										</main>
+									</div>
+									<div class="mobile list-group-item" v-for="(list2, index) in allComments2">
+										<div style="height:20px;"></div>
+										<div class="linha"></div>
+										<div style="height:20px;"></div>
+										<div><span class="comment__author"><strong>{{ list2.cidade }}</strong></span></div>
+										<div style="height:10px;"></div>
+										<main class="flex-centralizado">
+											<div style="width:50%;">
+												<div class="mini">Data</div>
+												<div class="mini">Temperatura</div>
+												<div class="mini">Umidade</div>
+												<div class="mini">Pressão</div>
+												<div class="mini">Nuvens</div>
+												<div class="mini">Vento</div>
+											</div>
+											<div style="width:50%;">
+												<div class="mini">{{ list2.data }}</div>
+												<div class="mini">{{ list2.temp }} °C</div>
+												<div class="mini">{{ list2.humidity }} %</div>
+												<div class="mini">{{ list2.pressure }} hPa</div>
+												<div class="mini">{{ list2.clouds }} %</div>
+												<div class="mini">{{ list2.speed }} km/h</div>
+											</div>
+										</main>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			`,
+			data() {
+				return {
+					comments: [],
+					comments2: [],
+					cidade: '',
+					cidade2: '',
+					isLogin: true,
+					isLogin2: false,
+					isCadastro: false,
+					isDashboard: false,
+					isCidade: false,
+					isTempo: false
+				}
+			},
+			methods: {
+				addCidade() {
+					fetch('https://community-open-weather-map.p.rapidapi.com/weather?q=' + this.cidade + '&units=metric', {
+						'method': 'GET',
+						'headers': {
+							'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+							'x-rapidapi-key': '1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769'
+						}
+					})
+					.then(response => response.json())
+					.then(data => {
+						this.comments.push({
+							cidade: data['name'] + ',' + data['sys']['country'],
+							latitude: data['coord']['lat'],
+							longetude: data['coord']['lon'],
+							data: new Date().toLocaleDateString('pt-br'),
+							atualizacao: new Date().toLocaleDateString('pt-br'),
+							iso: data['sys']['country']
+						});
+						this.cidade = '';
+						this.latitude = '';
+						this.longetude = '';
+						this.data = '';
+						this.atualizacao = '';
+						this.iso = '';
+					});
+				},
+				removeCidade(index) {
+					this.comments.splice(index, 1);
+				},
+				addCidade2() {
+					var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+					fetch('https://community-open-weather-map.p.rapidapi.com/weather?q=' + this.cidade2 + '&units=metric', {
+						'method': 'GET',
+						'headers': {
+							'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+							'x-rapidapi-key': '1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769'
+						}
+					})
+					.then(response => response.json())
+					.then(data => {
+						var latitude = data['coord']['lat'];
+						var longitude = data['coord']['lon'];
+						fetch('https://community-open-weather-map.p.rapidapi.com/forecast/daily?q=' + this.cidade2 + '&cnt=6&units=metric', {
+							'method': 'GET',
+							'headers': {
+								'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+								'x-rapidapi-key': '1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769'
+							}
+						})
+						.then(response => response.json())
+						.then(data2 => {
+							var dia = new Date(new Date().getTime()-(1*24*60*60*1000));
+							fetch("https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=" + latitude + "&lon=" + longitude + "&dt=" + Math.round(dia.getTime()/1000) + "&units=metric", {
+								"method": "GET",
+								"headers": {
+									"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+									"x-rapidapi-key": "1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769"
+								}
+							})
+							.then(response => response.json())
+							.then(data3 => {
+								var dia = new Date(new Date().getTime()-(2*24*60*60*1000));
+								fetch("https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=" + latitude + "&lon=" + longitude + "&dt=" + Math.round(dia.getTime()/1000) + "&units=metric", {
+									"method": "GET",
+									"headers": {
+										"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+										"x-rapidapi-key": "1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769"
+									}
+								})
+								.then(response => response.json())
+								.then(data4 => {
+									var dia = new Date(new Date().getTime()-(3*24*60*60*1000));
+									fetch("https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=" + latitude + "&lon=" + longitude + "&dt=" + Math.round(dia.getTime()/1000) + "&units=metric", {
+										"method": "GET",
+										"headers": {
+											"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+											"x-rapidapi-key": "1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769"
+										}
+									})
+									.then(response => response.json())
+									.then(data5 => {
+										var dia = new Date(new Date().getTime()-(4*24*60*60*1000));
+										fetch("https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=" + latitude + "&lon=" + longitude + "&dt=" + Math.round(dia.getTime()/1000) + "&units=metric", {
+											"method": "GET",
+											"headers": {
+												"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+												"x-rapidapi-key": "1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769"
+											}
+										})
+										.then(response => response.json())
+										.then(data6 => {
+											var dia = new Date(new Date().getTime()-(5*24*60*60*1000));
+											fetch("https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=" + latitude + "&lon=" + longitude + "&dt=" + Math.round(dia.getTime()/1000) + "&units=metric", {
+												"method": "GET",
+												"headers": {
+													"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+													"x-rapidapi-key": "1feb930417msh3defcce1d36b77bp1ea50fjsn330580874769"
+												}
+											})
+											.then(response => response.json())
+											.then(data7 => {
+												var dia = new Date();
+												this.comments2.push({
+													cidade: data['name'] + ',' + data['sys']['country'],
+													temp: data['main']['temp'],
+													humidity: data['main']['humidity'],
+													pressure: data['main']['pressure'],
+													clouds: data['clouds']['all'],
+													speed: data['wind']['speed'],
+													data: 'Hoje',
+													tempn1: data2['list'][1]['temp']['day'],
+													tempn2: data2['list'][2]['temp']['day'],
+													tempn3: data2['list'][3]['temp']['day'],
+													tempn4: data2['list'][4]['temp']['day'],
+													tempn5: data2['list'][5]['temp']['day'],
+													tempp1: data3['current']['temp'],
+													tempp2: data4['current']['temp'],
+													tempp3: data5['current']['temp'],
+													tempp4: data6['current']['temp'],
+													tempp5: data7['current']['temp'],
+													humidityn1: data2['list'][1]['humidity'],
+													humidityn2: data2['list'][2]['humidity'],
+													humidityn3: data2['list'][3]['humidity'],
+													humidityn4: data2['list'][4]['humidity'],
+													humidityn5: data2['list'][5]['humidity'],
+													humidityp1: data3['current']['humidity'],
+													humidityp2: data4['current']['humidity'],
+													humidityp3: data5['current']['humidity'],
+													humidityp4: data6['current']['humidity'],
+													humidityp5: data7['current']['humidity'],
+													pressuren1: data2['list'][1]['pressure'],
+													pressuren2: data2['list'][2]['pressure'],
+													pressuren3: data2['list'][3]['pressure'],
+													pressuren4: data2['list'][4]['pressure'],
+													pressuren5: data2['list'][5]['pressure'],
+													pressurep1: data3['current']['pressure'],
+													pressurep2: data4['current']['pressure'],
+													pressurep3: data5['current']['pressure'],
+													pressurep4: data6['current']['pressure'],
+													pressurep5: data7['current']['pressure'],
+													speedn1: data2['list'][1]['speed'],
+													speedn2: data2['list'][2]['speed'],
+													speedn3: data2['list'][3]['speed'],
+													speedn4: data2['list'][4]['speed'],
+													speedn5: data2['list'][5]['speed'],
+													speedp1: data3['current']['speed'],
+													speedp2: data4['current']['speed'],
+													speedp3: data5['current']['speed'],
+													speedp4: data6['current']['speed'],
+													speedp5: data7['current']['speed'],
+													cloudsn1: data2['list'][1]['clouds'],
+													cloudsn2: data2['list'][2]['clouds'],
+													cloudsn3: data2['list'][3]['clouds'],
+													cloudsn4: data2['list'][4]['clouds'],
+													cloudsn5: data2['list'][5]['clouds'],
+													cloudsp1: data3['current']['clouds'],
+													cloudsp2: data4['current']['clouds'],
+													cloudsp3: data5['current']['clouds'],
+													cloudsp4: data6['current']['clouds'],
+													cloudsp5: data7['current']['clouds'],
+													datan1: 'Amanhã',
+													datan2: '+ 2 dias',
+													datan3: '+ 3 dias',
+													datan4: '+ 4 dias',
+													datan5: '+ 5 dias',
+													datap1: 'Ontem',
+													datap2: '- 2 dias',
+													datap3: '- 3 dias',
+													datap4: '- 4 dias',
+													datap5: '- 5 dias'
+												});
+												this.cidade = '';
+												this.temp = '';
+												this.humidity = '';
+												this.pressure = '';
+												this.clouds = '';
+												this.speed = '';
+												this.data = '';
+												this.tempn1 = '';
+												this.tempn2 = '';
+												this.tempn3 = '';
+												this.tempn4 = '';
+												this.tempn5 = '';
+												this.humidityn1 = '';
+												this.humidityn2 = '';
+												this.humidityn3 = '';
+												this.humidityn4 = '';
+												this.humidityn5 = '';
+												this.pressuren1 = '';
+												this.pressuren2 = '';
+												this.pressuren3 = '';
+												this.pressuren4 = '';
+												this.pressuren5 = '';
+												this.speedn1 = '';
+												this.speedn2 = '';
+												this.speedn3 = '';
+												this.speedn4 = '';
+												this.speedn5 = '';
+												this.cloudsn1 = '';
+												this.cloudsn2 = '';
+												this.cloudsn3 = '';
+												this.cloudsn4 = '';
+												this.cloudsn5 = '';
+												this.datan1 = '';
+												this.datan2 = '';
+												this.datan3 = '';
+												this.datan4 = '';
+												this.datan5 = '';
+												this.datap1 = '';
+												this.datap2 = '';
+												this.datap3 = '';
+												this.datap4 = '';
+												this.datap5 = '';
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+					
+				},
+				removeCidade2(index) {
+					this.comments2.splice(index, 1);
+				}
+			},
+			computed: {
+				allComments() {
+					return this.comments.map(list => ({
+						...list,
+						cidade: list.cidade.trim() === '' ? 'Anônimo' : list.cidade
+					}))
+				},
+				allComments2() {
+					return this.comments2.map(list2 => ({
+						...list2
+					}))
+				}
+			},
+			watch: {
+				comments(val) {
+					console.log('val', val)
+				},
+				comments2(val) {
+					console.log('val', val)
+				}
+			}
+		});
+	</script>
+</body>
+</html>
